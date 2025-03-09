@@ -1,10 +1,7 @@
-from django.shortcuts import render
-
-# Create your views here.
 from rest_framework import viewsets
-from .models import Features
-from .serializers import FeaturesSerializer
+from .models import Feature  # Import from models, not self-referential
+from .serializers import FeatureSerializer
 
 class FeaturesViewSet(viewsets.ModelViewSet):
-    queryset = Features.objects.all()
-    serializer_class = FeaturesSerializer
+    queryset = Feature.objects.all()
+    serializer_class = FeatureSerializer

@@ -1,7 +1,7 @@
 from rest_framework import viewsets
-from .models import Faq
-from .serializers import FaqSerializer
+from .models import FAQ  # Changed from Faq to FAQ
+from .serializers import FAQSerializer
 
-class FaqViewSet(viewsets.ModelViewSet):
-    queryset = Faq.objects.all()
-    serializer_class = FaqSerializer
+class FAQViewSet(viewsets.ModelViewSet):
+    queryset = FAQ.objects.all()
+    serializer_class = FAQSerializer

@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from .models import Features
+from .models import Feature
 
-class FeaturesSerializer(serializers.ModelSerializer):
+class FeatureSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Features
-        fields = '__all__'
+        model = Feature
+        fields = ['id', 'title', 'description', 'created_at']
