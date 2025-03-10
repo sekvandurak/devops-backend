@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'contact',
     'features',
     'faq', 
+    'rest_framework_simplejwt',
 
 ]
 
@@ -57,6 +59,15 @@ REST_FRAMEWORK = {
 
 
 AUTH_USER_MODEL = 'users.Users'
+
+
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=90),  # Set access token to 90 days
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=90),  # Set refresh token to 90 days
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': False,
+}
 
 
 MIDDLEWARE = [
@@ -90,16 +101,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'backendproject.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
-#
-#DATABASES = {
-#   'default': {
-#       'ENGINE': 'django.db.backends.sqlite3',
-#       'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
  
 DATABASES = {
     'default': {
